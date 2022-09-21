@@ -100,6 +100,7 @@ target_link_libraries(test_sig_mem PRIVATE ${API_TEST_DEPS})
 add_executable(speed_sig speed_sig.c)
 target_link_libraries(speed_sig PRIVATE ${API_TEST_DEPS})
 
+include_directories(${OPENSSL_INCLUDE_DIR})
 add_executable(speed_sig_separated speed_sig_separated.c)
 target_link_libraries(speed_sig_separated PRIVATE ${API_TEST_DEPS})
 
