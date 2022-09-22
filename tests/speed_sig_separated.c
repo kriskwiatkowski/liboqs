@@ -136,7 +136,7 @@ static OQS_STATUS ecdsa_verify(EC_KEY *key, const struct ecdig *ec, uint8_t *s, 
     // Calculate digest of the message
     ec->fn(msg,MSG_LEN,h);
     // Create signature
-    (void)ECDSA_verify(0, h, ec->digest_len, s, ssz, key);
+    (void)ECDSA_verify(0, h, ec->digest_len, s, (int)ssz, key);
     return OQS_SUCCESS;
 }
 
