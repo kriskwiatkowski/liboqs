@@ -114,7 +114,7 @@ static bool is_flag(action_t t, action_t a) {
     return (t&a) == a;
 }
 
-static OQS_STATUS ecdsa_sign(EC_KEY *key, const struct ecdig *ec, uint8_t *s, int *ssz) {
+static OQS_STATUS ecdsa_sign(EC_KEY *key, const struct ecdig *ec, uint8_t *s, unsigned int *ssz) {
     uint8_t h[SHA512_DIGEST_LENGTH];
     uint8_t sm[132+7]; // result of ecdsa signing with P-521 fits in 66*2 bytes + 7 bytes
                        // as it seems to be ASN.1 encoded (?).
@@ -207,7 +207,7 @@ end:
 
 static OQS_STATUS speed_sig_ec(const struct ecdig *e, uint64_t duration, bool printInfo, action_t a) {
     OQS_STATUS ret = OQS_ERROR;
-    uint8_t s[1024] = {0}; int ssz;
+    uint8_t s[1024] = {0}; unsigned int ssz;
     if (!e) {
         return OQS_ERROR;
     }
