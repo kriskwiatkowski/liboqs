@@ -90,16 +90,6 @@ static OQS_STATUS printAlgs(void) {
     return OQS_SUCCESS;
 }
 
-static inline const struct ecdig *get_ecdig(int id) {
-    size_t i;
-    for(i=0; i<sizeof(ecdig)/sizeof(ecdig[0]); i++) {
-        if (ecdig[i].ext_id==id) {
-            return &ecdig[i];
-        }
-    }
-    return NULL;
-}
-
 static inline const struct ecdig *get_ecdig_by_name(const char* n) {
     size_t i;
     for(i=0; i<sizeof(ecdig)/sizeof(ecdig[0]); i++) {
