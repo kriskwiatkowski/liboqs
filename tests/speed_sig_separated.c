@@ -118,7 +118,7 @@ static OQS_STATUS ecdsa_sign(EC_KEY *key, const struct ecdig *ec, uint8_t *s, in
     uint8_t h[SHA512_DIGEST_LENGTH];
     uint8_t sm[132+7]; // result of ecdsa signing with P-521 fits in 66*2 bytes + 7 bytes
                        // as it seems to be ASN.1 encoded (?).
-    int sm_len = (int)(sizeof(sm)/sizeof(sm[0]));
+    unsigned int sm_len = (sizeof(sm)/sizeof(sm[0]));
 
     // Calculate digest of the message
     ec->fn(msg,MSG_LEN,h);
