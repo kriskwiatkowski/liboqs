@@ -131,7 +131,7 @@ static OQS_STATUS ecdsa_sign(EC_KEY *key, const struct ecdig *ec, uint8_t *s, un
     return OQS_SUCCESS;
 }
 
-static OQS_STATUS ecdsa_verify(EC_KEY *key, const struct ecdig *ec, uint8_t *s, int ssz) {
+static OQS_STATUS ecdsa_verify(EC_KEY *key, const struct ecdig *ec, uint8_t *s, unsigned int ssz) {
     uint8_t h[SHA512_DIGEST_LENGTH];
     // Calculate digest of the message
     ec->fn(msg,MSG_LEN,h);
